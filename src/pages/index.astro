@@ -1,13 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Comparison from '../components/Comparison';
 import Option from '../components/Option';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Prioritizer">
 	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		<h1>Prioritizer</h1>
+		<p>Sort a list of items by priority, or just find the top priority.</p>
 		<Option label={'test 1'} handler={() => console.log('test 1')} />
 		<Option label={'test 2'} handler={() => console.log('test 2')} />
+		<Comparison client:load />
 	</main>
 </Layout>
 
