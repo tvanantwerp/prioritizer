@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Option from '../components/Option';
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		<Option label={'test 1'} handler={() => console.log('test 1')} />
+		<Option label={'test 2'} handler={() => console.log('test 2')} />
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	}
+</style>
