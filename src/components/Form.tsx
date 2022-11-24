@@ -1,11 +1,13 @@
+import type React from 'react';
 import type { Item } from '../lib/sort';
+import { randomSort } from '../lib/sort';
 import { createItemsList } from '../lib/sort';
 
 interface Props {
-	setComparing: (comparing: boolean) => void;
-	setItems: (items: Item[]) => void;
+	setComparing: React.Dispatch<React.SetStateAction<boolean>>;
+	setItems: React.Dispatch<React.SetStateAction<Item[]>>;
 	sortType: 'top' | 'all';
-	setSortType: (sortType: 'top' | 'all') => void;
+	setSortType: React.Dispatch<React.SetStateAction<'top' | 'all'>>;
 }
 
 const Form = ({ setComparing, setItems, sortType, setSortType }: Props) => {
@@ -14,6 +16,7 @@ const Form = ({ setComparing, setItems, sortType, setSortType }: Props) => {
 			<form
 				onSubmit={e => {
 					e.preventDefault();
+					setItems(prev => randomSort(prev));
 					setComparing(true);
 				}}>
 				<fieldset>

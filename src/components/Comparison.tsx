@@ -1,5 +1,5 @@
-import { Item, randomSort } from '../lib/sort';
-import { useEffect, useState } from 'react';
+import type { Item } from '../lib/sort';
+import { useState } from 'react';
 import Form from './Form';
 import Top from './Top';
 
@@ -7,12 +7,6 @@ const Comparison = () => {
 	const [comparing, setComparing] = useState(false);
 	const [items, setItems] = useState<Item[]>([]);
 	const [sortType, setSortType] = useState<'top' | 'all'>('top');
-
-	useEffect(() => {
-		if (comparing) {
-			setItems(randomSort(items));
-		}
-	}, [comparing]);
 
 	return (
 		<div>

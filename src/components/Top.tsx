@@ -6,6 +6,17 @@ interface Props {
 	items: Item[];
 }
 
+function getOptionClass(
+	option: number,
+	option1: number,
+	option2: number,
+	choices: number[],
+) {
+	if (option === option1 || option === option2) return 'text-green-600';
+	if (choices.includes(option)) return 'text-slate-800';
+	return 'text-slate-400';
+}
+
 const Top = ({ items }: Props) => {
 	const [top, setTop] = useState<number>(0);
 	const choices = useRef<number[]>(
@@ -42,12 +53,16 @@ const Top = ({ items }: Props) => {
 					updateChoice={updateChoice}
 				/>
 			)}
-			<ol>
-				{items
-					.filter((_, i) => choices.current.includes(i))
-					.map(item => {
-						return <li key={item.name}>{item.name}</li>;
-					})}
+			<ol className="columns-1 md:columns-2 lg:columns-3 xl:columns-4">
+				{items.map((item, i) => {
+					return (
+						<li
+							className={getOptionClass(i, option1, option2, choices.current)}
+							key={item.name}>
+							{item.name}
+						</li>
+					);
+				})}
 			</ol>
 			{done && <p>The top priority is {items[top]?.name ?? 'missing'}.</p>}
 		</div>
