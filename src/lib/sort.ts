@@ -3,7 +3,7 @@ export interface Item {
 	value: number;
 }
 
-export const randomSort = (list: string[]): string[] => {
+export const randomSort = <T>(list: T[]): T[] => {
 	return list.sort(() => {
 		return Math.round(2 * (Math.random() - 0.5));
 	});
