@@ -34,13 +34,6 @@ const Comparison = () => {
 					Start Over
 				</Button>
 			)}
-			{items.length > 0 && (
-				<ul className="mt-48">
-					{items.map(item => (
-						<li key={item.name}>{item.name}</li>
-					))}
-				</ul>
-			)}
 		</div>
 	);
 };

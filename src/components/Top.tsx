@@ -1,5 +1,6 @@
 import Choice from './Choice';
 import type { Item } from '../lib/sort';
+import classNames from 'classnames';
 import { useState, useRef } from 'react';
 
 interface Props {
@@ -12,8 +13,9 @@ function getOptionClass(
 	option2: number,
 	choices: number[],
 ) {
-	if (option === option1 || option === option2) return 'text-green-600';
-	if (choices.includes(option)) return 'text-slate-800';
+	if (option === option1 || option === option2)
+		return 'bg-green-100 text-green-600';
+	if (choices.includes(option)) return 'bg-orange-100 text-slate-800';
 	return 'text-slate-400';
 }
 
@@ -51,18 +53,25 @@ const Top = ({ items }: Props) => {
 					updateChoice={updateChoice}
 				/>
 			)}
-			<ol className="columns-1 md:columns-2 lg:columns-3 xl:columns-4">
+			{done && (
+				<p className="text-center text-xl border border-slate-800 w-full py-2 px-4">
+					The top priority is {items[top]?.name ?? 'missing'}.
+				</p>
+			)}
+			<ol className="my-8 columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4">
 				{items.map((item, i) => {
 					return (
 						<li
-							className={getOptionClass(i, option1, option2, choices.current)}
+							className={classNames(
+								'py-1 px-2 mb-4',
+								getOptionClass(i, option1, option2, choices.current),
+							)}
 							key={item.name}>
 							{item.name}
 						</li>
 					);
 				})}
 			</ol>
-			{done && <p>The top priority is {items[top]?.name ?? 'missing'}.</p>}
 		</div>
 	);
 };
