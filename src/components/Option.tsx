@@ -4,7 +4,11 @@ interface Props {
 }
 
 const Option = ({ label, handler }: Props) => {
-	return <button onClick={handler}>{label}</button>;
+	return (
+		<button className="border border-slate-800" onClick={handler}>
+			{label}
+		</button>
+	);
 };
 
 export default Option;

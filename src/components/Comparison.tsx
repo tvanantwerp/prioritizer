@@ -27,6 +27,7 @@ const Comparison = () => {
 			{comparing && sortType === 'top' && (
 				<div>
 					<button
+						className="border border-slate-800"
 						onClick={() => {
 							setItems([]);
 							setComparing(false);

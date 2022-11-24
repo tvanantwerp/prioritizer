@@ -1,14 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Comparison from '../components/Comparison';
-import Option from '../components/Option';
 ---
 
 <Layout title="Prioritizer">
 	<main>
-		<h1>Prioritizer</h1>
+		<h1 class="text-2xl mb-8">Prioritizer</h1>
 		<p>Sort a list of items by priority, or just find the top priority.</p>
-
+		<hr class="my-8 border-slate-800" />
 		<Comparison client:load />
 	</main>
 </Layout>

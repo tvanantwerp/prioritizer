@@ -37,12 +37,17 @@ const Form = ({ setComparing, setItems, sortType, setSortType }: Props) => {
 					/>
 					<label htmlFor="all-sort">All</label>
 				</fieldset>
-				<label htmlFor="text-input">Enter Items, One Per Line</label>
+				<label htmlFor="text-input" className="block">
+					Enter Items, One Per Line
+				</label>
 				<textarea
+					className="block w-full h-48 mb-8"
 					id="text-input"
 					onChange={e => setItems(createItemsList(e.target.value))}
 				/>
-				<button type="submit">Start</button>
+				<button className="border border-slate-800" type="submit">
+					Start
+				</button>
 			</form>
 		</div>
 	);
