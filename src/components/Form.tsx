@@ -3,6 +3,7 @@ import type { Item } from '../lib/sort';
 import { randomSort } from '../lib/sort';
 import { createItemsList } from '../lib/sort';
 import Button from './Button';
+import RadioOrCheckbox from './RadioOrCheckbox';
 
 interface Props {
 	items: Item[];
@@ -31,26 +32,26 @@ const Form = ({
 					<legend>Type of Sort</legend>
 					<div className="grid gap-8 grid-cols-2 justify-items-center">
 						<div>
-							<input
+							<RadioOrCheckbox
 								id="top-sort"
 								type="radio"
 								name="sort-type"
 								value="top"
 								checked={sortType === 'top'}
-								onChange={() => setSortType('top')}
-							/>
-							<label htmlFor="top-sort">Top</label>
+								onChange={() => setSortType('top')}>
+								Top Priority Only
+							</RadioOrCheckbox>
 						</div>
 						<div>
-							<input
+							<RadioOrCheckbox
 								id="all-sort"
 								type="radio"
 								name="sort-type"
 								value="all"
 								checked={sortType === 'all'}
-								onChange={() => setSortType('all')}
-							/>
-							<label htmlFor="all-sort">All</label>
+								onChange={() => setSortType('all')}>
+								Sort All Priorities
+							</RadioOrCheckbox>
 						</div>
 					</div>
 				</fieldset>
