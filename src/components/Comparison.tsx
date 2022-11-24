@@ -2,6 +2,7 @@ import type { Item } from '../lib/sort';
 import { useState } from 'react';
 import Form from './Form';
 import Top from './Top';
+import Button from './Button';
 
 const Comparison = () => {
 	const [comparing, setComparing] = useState(false);
@@ -25,14 +26,13 @@ const Comparison = () => {
 				</div>
 			)}
 			{comparing && (
-				<button
-					className="border border-slate-800"
+				<Button
 					onClick={() => {
 						setItems([]);
 						setComparing(false);
 					}}>
 					Start Over
-				</button>
+				</Button>
 			)}
 			{items.length > 0 && (
 				<ul className="mt-48">

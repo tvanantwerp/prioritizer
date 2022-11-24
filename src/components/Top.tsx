@@ -27,7 +27,6 @@ const Top = ({ items }: Props) => {
 	const [done, setDone] = useState(false);
 
 	const updateChoice = (choice: number) => {
-		console.log(top, choices.current, option1, option2);
 		setTop(choice);
 
 		if (choices.current.length === 0) {
@@ -41,7 +40,6 @@ const Top = ({ items }: Props) => {
 			setOption1(newChoice!);
 		}
 	};
-	console.log(top, choices.current, option1, option2);
 
 	return (
 		<div>
