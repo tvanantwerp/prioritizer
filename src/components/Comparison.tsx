@@ -24,7 +24,18 @@ const Comparison = () => {
 					setSortType={setSortType}
 				/>
 			)}
-			{comparing && sortType === 'top' && <Top items={items} />}
+			{comparing && sortType === 'top' && (
+				<div>
+					<button
+						onClick={() => {
+							setItems([]);
+							setComparing(false);
+						}}>
+						Start Over
+					</button>
+					<Top items={items} />
+				</div>
+			)}
 			{items.length > 0 && (
 				<ul>
 					{items.map(item => (
