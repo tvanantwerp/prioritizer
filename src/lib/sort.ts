@@ -3,11 +3,15 @@ export interface Item {
 	value: number;
 }
 
-export const randomSort = <T>(list: T[]): T[] => {
-	return list.sort(() => {
-		return Math.round(2 * (Math.random() - 0.5));
-	});
-};
+export function randomSort<T>(arr: T[]): T[] {
+	for (let i = arr.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		const temp = arr[i];
+		arr[i] = arr[j]!;
+		arr[j] = temp!;
+	}
+	return arr;
+}
 
 export const createItemsList = (rawText: string): Item[] => {
 	return rawText

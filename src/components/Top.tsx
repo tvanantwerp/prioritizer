@@ -15,7 +15,7 @@ function getOptionClass(
 ) {
 	if (option === option1 || option === option2)
 		return 'bg-green-100 text-green-600';
-	if (choices.includes(option)) return 'bg-orange-100 text-slate-800';
+	if (choices.includes(option)) return 'bg-rose-100 text-slate-800';
 	return 'text-slate-400';
 }
 
@@ -63,7 +63,7 @@ const Top = ({ items }: Props) => {
 					return (
 						<li
 							className={classNames(
-								'py-1 px-2 mb-4',
+								'text-center py-1 px-2 mb-4',
 								getOptionClass(i, option1, option2, choices.current),
 							)}
 							key={item.name}>
