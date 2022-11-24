@@ -10,7 +10,7 @@ interface Props {
 
 const Choice = ({ items, option1, option2, updateChoice }: Props) => {
 	return items.length >= 2 ? (
-		<div>
+		<div className="gap-4 grid grid-rows-2 grid-cols-1 lg:grid-rows-1 lg:grid-cols-2">
 			<Option
 				label={items[option1]?.name ?? 'Missing Choice'}
 				handler={() => updateChoice(option1)}

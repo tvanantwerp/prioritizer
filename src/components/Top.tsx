@@ -18,16 +18,16 @@ const Top = ({ items }: Props) => {
 	const updateChoice = (choice: number) => {
 		console.log(top, choices.current, option1, option2);
 		setTop(choice);
-		const newChoice = choices.current.shift();
 
+		if (choices.current.length === 0) {
+			setDone(true);
+		}
+
+		const newChoice = choices.current.shift();
 		if (choice === option1) {
 			setOption2(newChoice!);
 		} else {
 			setOption1(newChoice!);
-		}
-
-		if (choices.current.length <= 0) {
-			setDone(true);
 		}
 	};
 	console.log(top, choices.current, option1, option2);
