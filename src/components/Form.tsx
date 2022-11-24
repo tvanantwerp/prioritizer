@@ -4,13 +4,20 @@ import { randomSort } from '../lib/sort';
 import { createItemsList } from '../lib/sort';
 
 interface Props {
+	items: Item[];
 	setComparing: React.Dispatch<React.SetStateAction<boolean>>;
 	setItems: React.Dispatch<React.SetStateAction<Item[]>>;
 	sortType: 'top' | 'all';
 	setSortType: React.Dispatch<React.SetStateAction<'top' | 'all'>>;
 }
 
-const Form = ({ setComparing, setItems, sortType, setSortType }: Props) => {
+const Form = ({
+	items,
+	setComparing,
+	setItems,
+	sortType,
+	setSortType,
+}: Props) => {
 	return (
 		<div>
 			<form
@@ -48,7 +55,10 @@ const Form = ({ setComparing, setItems, sortType, setSortType }: Props) => {
 					id="text-input"
 					onChange={e => setItems(createItemsList(e.target.value))}
 				/>
-				<button className="border border-slate-800" type="submit">
+				<button
+					className="border border-slate-800 disabled:opacity-50"
+					type="submit"
+					disabled={items.length < 2}>
 					Start
 				</button>
 			</form>

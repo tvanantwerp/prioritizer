@@ -12,6 +12,7 @@ const Comparison = () => {
 		<div>
 			{!comparing && (
 				<Form
+					items={items}
 					setComparing={setComparing}
 					setItems={setItems}
 					sortType={sortType}
@@ -20,16 +21,18 @@ const Comparison = () => {
 			)}
 			{comparing && sortType === 'top' && (
 				<div>
-					<button
-						className="border border-slate-800"
-						onClick={() => {
-							setItems([]);
-							setComparing(false);
-						}}>
-						Start Over
-					</button>
 					<Top items={items} />
 				</div>
+			)}
+			{comparing && (
+				<button
+					className="border border-slate-800"
+					onClick={() => {
+						setItems([]);
+						setComparing(false);
+					}}>
+					Start Over
+				</button>
 			)}
 			{items.length > 0 && (
 				<ul className="mt-48">
