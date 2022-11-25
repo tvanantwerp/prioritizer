@@ -2,6 +2,7 @@ import type { Item } from '../lib/sort';
 import { useState } from 'react';
 import Form from './Form';
 import Top from './Top';
+import All from './All';
 import Button from './Button';
 
 const Comparison = () => {
@@ -23,6 +24,11 @@ const Comparison = () => {
 			{comparing && sortType === 'top' && (
 				<div>
 					<Top items={items} />
+				</div>
+			)}
+			{comparing && sortType === 'all' && (
+				<div>
+					<All items={items} />
 				</div>
 			)}
 			{comparing && (
