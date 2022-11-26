@@ -1,6 +1,7 @@
 export interface Item {
 	name: string;
 	value: number;
+	children?: string[];
 }
 
 export function randomSort<T>(arr: T[]): T[] {
